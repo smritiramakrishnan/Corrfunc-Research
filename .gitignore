@@ -1,2 +1,9 @@
 .fit
 data_analysis.ipynb
+calc_wps_sub.py
+testing_batch_job
+.sh
+.npz
+.env
+__pycache__/
+halo_vis.ipynb
