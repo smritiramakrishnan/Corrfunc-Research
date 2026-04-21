@@ -1,11 +1,19 @@
 import sys
-from wp_functions import WpCalculations
+import os
+sys.path.append(os.path.abspath(os.path.join('..')))
+from src.subvolume_utils import WpCalculations
+
+from dotenv import load_dotenv
+load_dotenv()
+
+g_base = os.getenv('galaxy_base')
+h_base = os.getenv('halo_base')
 import numpy as np
 
 if __name__ == "__main__":
     i = int(sys.argv[1])
-    galaxies = f"/projects/hywu/cluster_sims/cluster_finding/data/emulator_data/base_c000_ph{i:03d}/z0p300/model_hod000000/gals.fit"
-    halos = f"/projects/hywu/cluster_sims/cluster_finding/data/AbacusSummit_base/base_c000/base_c000_ph{i:03d}/z0p300/halos_3e+12.fit"
+    galaxies = f"{g_base}base_c000_ph{i:03d}/z0p300/model_hod000000/gals.fit"
+    halos = f"{h_base}base_c000_ph{i:03d}/z0p300/halos_3e+12.fit"
     current = WpCalculations()
     wp_old, rp_old = current.error_wp_calc_oldv(galaxies, halos)
     np.savez(f"wp_testing_old_halos{i:03d}.npz", rp_old = rp_old, wp_old = wp_old)

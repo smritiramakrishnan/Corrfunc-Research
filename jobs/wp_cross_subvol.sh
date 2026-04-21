@@ -4,13 +4,13 @@
 #SBATCH --account=account_name
 #SBATCH --output=output_%A_%a.txt
 #SBATCH --array=0-24%5
-#SBATCH --partition=dev
+#SBATCH --partition=partition_name
 #SBATCH --time=02:00:00
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
 #SBATCH --chdir=file_dir
 #SBATCH --mail-type=all
-#SBATCH --mail-user smritir@smu.edu
+#SBATCH --mail-user=user_mail
 
 module purge
 module load miniforge
