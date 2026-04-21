@@ -1,9 +1,16 @@
+#file types to ignore
 .fit
-data_analysis.ipynb
-calc_wps_sub.py
-testing_batch_job
 .sh
 .npz
 .env
+
+#folders to ingore
 __pycache__/
+testing_batch_job/
+data/*
+!data/README.md
+
+#files to ignore
+data_analysis.ipynb
+calc_wps_sub.py
 halo_vis.ipynb

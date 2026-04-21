@@ -1,0 +1,1 @@
+Data is created for 02 by running files in jobs folder, and for 01 by running code in .ipynb notebooks
