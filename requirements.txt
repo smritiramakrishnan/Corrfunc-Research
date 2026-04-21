@@ -1,0 +1,7 @@
+corrfunc==2.5.3
+fitsio==1.2.8
+matplotlib==3.10.8
+numpy==2.4.4
+python-dotenv==1.2.2
+PyYAML==6.0.2
+seaborn==0.13.2
