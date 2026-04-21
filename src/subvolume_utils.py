@@ -1,9 +1,14 @@
 import fitsio
 import numpy as np
-from calc_wps_sub_copy import MeasureWp
+
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join('..')))
+from src.calc_wps_sub_copy import MeasureWp
 from Corrfunc.theory import wp
 from Corrfunc.theory.DDrppi import DDrppi
-from correlation_tools import create_data
+from src.correlation_tools import create_data
 
 # returns x, y, z, and count_var
 def create_data_counts(fname, count_var = 'mass'):

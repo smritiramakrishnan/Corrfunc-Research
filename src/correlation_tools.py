@@ -101,17 +101,17 @@ def wp_pairs_cross(X1, Y1, Z1, X2, Y2, Z2, pimax, bins, boxsize):
 def error_data(rpavg_, wp_):
     wp_mean = []
     rpavg_mean = []
-    stdev = []
-    for i in range(20):
+    stdev_ = []
+    for i in range(len(wp_[0])):
         all_wp = []
         all_rpavg = []
-        for arr in range(20):
+        for arr in range(len(wp_)):
             all_wp.append(wp_[arr][i])
             all_rpavg.append(rpavg_[arr][i])
         wp_mean.append(statistics.mean(all_wp))
         rpavg_mean.append(statistics.mean(all_rpavg))
-        stdev.append(statistics.stdev(all_wp))
-    return rpavg_mean, wp_mean, stdev
+        stdev_.append(statistics.stdev(all_wp))
+    return rpavg_mean, wp_mean, stdev_
 
 def simulate(rbins, scale_, max_ = 20, range_ = False, var = '', min = 0, gal_sub = 1, g_base = os.getenv('galaxy_base'), h_base = os.getenv('halo_base')): 
     all_wp = []
