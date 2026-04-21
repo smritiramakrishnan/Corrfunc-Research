@@ -1,16 +1,16 @@
 #!/bin/bash
 
 #SBATCH --job-name=wp-count-limit
-#SBATCH --account=hywu_cluster_sims_0001
-#SBATCH --array=11-24%5
+#SBATCH --account=account_name
+#SBATCH --array=0-24%5
 #SBATCH --output=wp-counts_%A_%a.txt
 #SBATCH --time=1-00:00:00
-#SBATCH --partition=standard-s
+#SBATCH --partition=partition_name
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --chdir="/users/smritir/Corrfunc-Research/source/spectroscopic-vs-photometric"
+#SBATCH --chdir=file_dir
 #SBATCH --mail-type=all
-#SBATCH --mail-user=smritir@smu.edu
+#SBATCH --mail-user=user_mail
 
 module purge
 module load miniforge

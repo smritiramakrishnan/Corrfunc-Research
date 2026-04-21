@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #SBATCH --job-name=wp-across-subvolumes
-#SBATCH --account=hywu_cluster_sims_0001
+#SBATCH --account=account_name
 #SBATCH --output=output_%A_%a.txt
-#SBATCH --array=20-24
+#SBATCH --array=0-24%5
 #SBATCH --partition=dev
 #SBATCH --time=02:00:00
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=256G
-#SBATCH --chdir="/users/smritir/Corrfunc-Research/source/spectroscopic-vs-photometric"
+#SBATCH --chdir=file_dir
 #SBATCH --mail-type=all
 #SBATCH --mail-user smritir@smu.edu
 

@@ -1,16 +1,16 @@
 #!/bin/bash
 
 #SBATCH --job-name=error-tracking1-halos
-#SBATCH --account=hywu_cluster_sims_0001
+#SBATCH --account=account_name
 #SBATCH --array=0-1
 #SBATCH --time=2:00:00
 #SBATCH --mem=330G
 #SBATCH --output=error-tracking_%A_%a.txt
-#SBATCH --partition=dev
-#SBATCH --chdir="/users/smritir/Corrfunc-Research/source/spectroscopic-vs-photometric"
+#SBATCH --partition=partition_name
+#SBATCH --chdir=file_dir
 #SBATCH --cpus-per-task=32
 #SBATCH --mail-type=all
-#SBATCH --mail-user=smritir@smu.edu
+#SBATCH --mail-user=user_mail
 
 module purge
 module load miniforge
