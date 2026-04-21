@@ -45,6 +45,7 @@ def get_surr(current, sub_):
                     surrounding.append((x_fin * sub_ * sub_) + (y_fin * sub_) + z_fin)
     return surrounding
 
+# Getting indexes and boundaries for subvolumes
 def subvolume_calc(boxsize = 0, fname = '', x = None, y = None, z = None, sub_ = 4,  var = 'mass', min_ = 0, counts = 0, hist = False):
 
     if fname != '':
@@ -80,11 +81,10 @@ def subvolume_calc(boxsize = 0, fname = '', x = None, y = None, z = None, sub_ =
             # idx is indeces of highest 1831 halos in current subvol
             idx = (np.argpartition(count_var[subvol], -counts))[-counts:]
             # count_var is 83 mill in size, count_var[subvol] is the size of subvolume
-            print(f"subvol {i}:")
-            print(np.min(count_var[subvol]), np.max(count_var[subvol]))
-            print(np.min(count_var[subvol[idx]]), np.max(count_var[subvol[idx]]))
+            # appends indeces of top 1831 halos within subvol to index tracker
             halo_idx.append(subvol[idx])
         
+        # creates 1d array
         halo_idx = np.concatenate(halo_idx)
 
         halo_idx = halo_idx.astype(np.int64)
@@ -113,6 +113,7 @@ class WpCalculations():
     def __init__(self):
         self.sub_ = 4
 
+    # Uses semester 1 code (modified slightly) to get wp rp (mostly used for plotting histograms)
     def error_wp_calc_oldv(self, galaxies, cluster, clusters = True, mass = False):
         wp = []
         rpavg = []

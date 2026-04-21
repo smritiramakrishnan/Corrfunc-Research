@@ -1,9 +1,8 @@
 import numpy as np
-from Corrfunc.theory import wp
-from Corrfunc.theory.DDrppi import DDrppi
 import matplotlib.pyplot as plt
 plt.style.use('MNRAS')
 
+# returning fractional error of mean of multiple simulations
 def get_frac_err(stdev, meanwp):
     err = [stdev[i]/meanwp[i] for i in range (len(stdev))]
     return err
@@ -28,6 +27,7 @@ def plot_frac_err(rp_, frac_err, labels, colors = None, dotted = False, y_max = 
     plt.xlabel(r'$\langle r_p\rangle$')
     plt.legend(labels, fontsize = 'small')
 
+# plots wp and rp with error bars
 def wp_vs_rpavg(rpavg_, wp_, yerr, loglog = True, y_max = 0, y_min = 0, legend = ''):
     plt.plot(rpavg_, wp_, color = '#54186F', label = legend)
     plt.errorbar(rpavg_, wp_, yerr, fmt = 'o',  capsize = 8, capthick = 1.5, color = "#54186F" , ecolor = "#A884BC", elinewidth = 1.5)
@@ -40,6 +40,7 @@ def wp_vs_rpavg(rpavg_, wp_, yerr, loglog = True, y_max = 0, y_min = 0, legend =
     if loglog:
         plt.loglog()
 
+# plots stdev against rp 
 def error_v_rp(rpavg_, yerr, loglog = True):
     plt.plot(rpavg_, yerr)
     plt.title(r'$\langle r_p\rangle$ vs $\sigma_{w_p}$')
@@ -47,7 +48,7 @@ def error_v_rp(rpavg_, yerr, loglog = True):
     plt.ylabel(r'$\sigma_{w_p}$')
     if loglog:
         plt.loglog()
-
+        
 def plot_results(rpavg_, wp_, labels = '', error = [], y_max = 0, y_min = 0):
     for i in range(len(wp_)):
         plt.plot(rpavg_[i], wp_[i])

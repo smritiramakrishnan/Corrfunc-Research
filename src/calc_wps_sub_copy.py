@@ -3,7 +3,7 @@ import os
 import numpy as np
 import fitsio
 from Corrfunc._countpairs import countpairs_rp_pi
-# Deleting imports and path settings that are not accessible/used from /users/shuleic/...
+# Deleting imports and path settings that are not accessible/used from shuleic/...
 # Full code with those imports included in calc_wps_sub.py
 import yaml
 

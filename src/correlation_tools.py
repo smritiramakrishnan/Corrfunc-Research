@@ -9,6 +9,7 @@ import os
 
 load_dotenv()
 
+# creates and returns np arrays positions from fitsio data
 def create_data(fname, var = '', min_ = 0):
     data = fitsio.read(fname)
     if (var == ''): 
@@ -21,6 +22,7 @@ def create_data(fname, var = '', min_ = 0):
         z = np.array(data['pz'], dtype=np.float64, order='C')[data[var] > min_]
     return x, y, z
 
+# Semester 1: getting auto-correlated rp and wp of data
 def generate_results(x, y, z, nbins = 20, print_res = False):
     
     boxsize = max(x)
@@ -46,6 +48,7 @@ def generate_results(x, y, z, nbins = 20, print_res = False):
         wp_res.append(result[3])
     return wp_res, rpavg_res
 
+# Semester 1 (used for comparing Sem 2): getting cross-correlated wp and rp
 def wp_pairs_cross(X1, Y1, Z1, X2, Y2, Z2, pimax, bins, boxsize):
     wp = []
     rpavg = []
@@ -98,6 +101,7 @@ def wp_pairs_cross(X1, Y1, Z1, X2, Y2, Z2, pimax, bins, boxsize):
         rpavg.append(rpavg_/total_pairs)
     return wp, rpavg
 
+# getting mean and stdev of multiple simulation box wp_rp results
 def error_data(rpavg_, wp_):
     wp_mean = []
     rpavg_mean = []
@@ -113,6 +117,7 @@ def error_data(rpavg_, wp_):
         stdev_.append(statistics.stdev(all_wp))
     return rpavg_mean, wp_mean, stdev_
 
+# Semester 1: getting all wp and rp values across 20 simualtion boxes
 def simulate(rbins, scale_, max_ = 20, range_ = False, var = '', min = 0, gal_sub = 1, g_base = os.getenv('galaxy_base'), h_base = os.getenv('halo_base')): 
     all_wp = []
     all_rpavg = []
