@@ -29,8 +29,8 @@ def plot_frac_err(rp_, frac_err, labels, colors = None, dotted = False, y_max = 
 
 # plots wp and rp with error bars
 def wp_vs_rpavg(rpavg_, wp_, yerr, loglog = True, y_max = 0, y_min = 0, legend = ''):
-    plt.plot(rpavg_, wp_, color = '#54186F', label = legend)
-    plt.errorbar(rpavg_, wp_, yerr, fmt = 'o',  capsize = 8, capthick = 1.5, color = "#54186F" , ecolor = "#A884BC", elinewidth = 1.5)
+    #plt.plot(rpavg_, wp_, label = legend)
+    plt.errorbar(rpavg_, wp_, yerr, label = legend)#, fmt = 'o',  capsize = 8, capthick = 1.5, color = "#54186F" , ecolor = "#A884BC", elinewidth = 1.5)
     if y_max > 0:
         plt.ylim(y_min, y_max)
     print(np.min(wp_), np.max(wp_))
